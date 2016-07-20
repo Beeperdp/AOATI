@@ -22,6 +22,7 @@ import com.beeperdp.aoati.item.ItemAdamantiumIngot;
 import com.beeperdp.aoati.item.ItemAdamantiumPiece;
 import com.beeperdp.aoati.item.ItemAdamantiumPieces;
 import com.beeperdp.aoati.item.ItemCharredCoal;
+import com.beeperdp.aoati.item.ItemSoulIngot;
 import com.beeperdp.aoati.item.ItemTeleporter;
 import com.beeperdp.aoati.worldgen.AoatiWorldGen;
 
@@ -60,6 +61,7 @@ public class aoati {
 	public static Item itemTeleporter;
 	public static Item itemAdamantiumIngot;
 	public static Item itemSoulIngot;
+	public static Item itemSoul;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
@@ -89,6 +91,7 @@ public class aoati {
 		itemTeleporter = new ItemTeleporter();
 		itemAdamantiumIngot = new ItemAdamantiumIngot();
 		itemSoulIngot = new ItemSoulIngot();
+		itemSoul = new ItemSoul();
 	}
 	
 	private static void RegisterItems(){
@@ -99,6 +102,7 @@ public class aoati {
 		GameRegistry.registerItem(itemTeleporter, itemTeleporter.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(itemAdamantiumIngot, itemAdamantiumIngot.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(itemSoulIngot, itemSoulIngot.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(itemSoul, itemSoul.getUnlocalizedName().substring(5));
 	}
 	
 	private static void DeclareBlocks(){
@@ -140,12 +144,15 @@ public class aoati {
 		//Ingot Former
 		GameRegistry.addRecipe(new ItemStack(blockIngotFormer, 1), new Object[]{"III","ICI","IFI", 'F', new ItemStack(Blocks.furnace,1), 'C', Blocks.crafting_table, 'I', Items.iron_ingot});
 		
+		//Soul
+		GameRegistry.addRecipe(new ItemStack(itemSoul, 1), new Object[]{"S  ","   ","   ", 'S', Blocks.soul_sand});
+		
 		//Mining Gels
 		GameRegistry.addRecipe(new ItemStack(blockVirus, 1), new Object[]{"III","ISI","III", 'S', itemSoulIngot, 'I', Items.iron_ingot});
 		GameRegistry.addRecipe(new ItemStack(blockVirusCoal, 1), new Object[]{"III","ISI","III", 'S', itemSoulIngot, 'I', Items.coal});
 		GameRegistry.addRecipe(new ItemStack(blockVirusLiquid, 1), new Object[]{" I "," S "," I ", 'S', itemSoulIngot, 'I', Items.lava_bucket});
 		GameRegistry.addRecipe(new ItemStack(blockVirusLiquid, 1), new Object[]{"   ","ISI","   ", 'S', itemSoulIngot, 'I', Items.water_bucket});
-		GameRegistry.addRecipe(new ItemStack(blockVirusAdamantium, 1), new Object[]{"III","ISI","III", 'S', itemSoulIngot, 'I', itemAdamantiumPiece});
+		GameRegistry.addRecipe(new ItemStack(blockVirusAdamantium, 1), new Object[]{"III","ISI","III", 'S', itemSoulIngot, 'I', itemAdamantiumBits});
 		
 		//Teleporter
 		GameRegistry.addRecipe(new ItemStack(itemTeleporter, 1), new Object[]{"GIG","ISI","GIG", 'S', Items.diamond, 'I', Items.iron_ingot, 'G', Blocks.glass_pane});

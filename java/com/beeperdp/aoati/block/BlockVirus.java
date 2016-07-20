@@ -1,5 +1,6 @@
 package com.beeperdp.aoati.block;
 
+import java.util.List;
 import java.util.Random;
 
 import com.beeperdp.aoati.aoati;
@@ -161,4 +162,11 @@ public class BlockVirus extends Block {
 	public IIcon getIcon(int side, int meta) {
 		return this.icons[0];
 	}
+	
+	//@Override
+	//public void addInformation(ItemStack h, EntityPlayer e, List l, boolean p){
+	//	l.add("When placed, this block will spread");
+	//	l.add("rapidly throughout the surrounding area");
+	//	l.add("revealing any Iron Ore around you.");
+	//}
 }

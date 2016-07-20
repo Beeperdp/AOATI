@@ -1,4 +1,4 @@
-package com.beeperdp.aoati;
+package com.beeperdp.aoati.item;
 
 import net.minecraft.item.Item;
 

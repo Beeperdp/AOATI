@@ -14,5 +14,6 @@ item.itemAdamantiumPieces.name=Adamantium Pieces
 item.itemTeleporter.name=Teleporter
 item.itemAdamantiumIngot.name=Adamantium Ingot
 item.itemSoulIngot.name=Soul Ingot
+item.itemSoul.name=Nether Soul
 
 itemGroup.creativeTab=AOATI

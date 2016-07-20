@@ -13,6 +13,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MovingObjectPosition;
@@ -64,8 +65,9 @@ public static ItemStack suitable(World world, EntityPlayer player, ItemStack ite
 			ChunkCoordinates chunk = new ChunkCoordinates(x, y, z);
 			player.setSpawnChunk(chunk, true);//True means to not check for a bed
 			player.addChatMessage(new ChatComponentText("Spawn Point Set"));
-			player.addChatMessage(new ChatComponentText("Warning: You may spawn in gravel. If you do, please break the gravel."));
+			player.addChatMessage(new ChatComponentText("Warning: You may spawn in gravel or sand. If you do, please break the gravel."));
 			player.setHealth(20.0F);
+			player.addPotionEffect(new PotionEffect(10, 180, 6, false));
 			good = true;
 		}
 	}

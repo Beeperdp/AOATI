@@ -23,7 +23,7 @@ public class BlockIngotFormerRecipes {
 	
 	private BlockIngotFormerRecipes(){
 		this.addRecipe(aoati.itemAdamantiumPieces, new ItemStack(aoati.itemAdamantiumIngot), 6.4F);
-		this.addRecipe(aoati.itemSoulIngot, new ItemStack(Blocks.soul_sand), 6.4F);
+		this.addRecipe(aoati.itemSoul, new ItemStack(aoati.itemSoulIngot, 2), 6.4F);
 		//this.addRecipie(Item.getItemFromBlock(TMBlock.tutChest), new ItemStack(TMItem.tutHelmet), 0.8F);
 	}
 	
