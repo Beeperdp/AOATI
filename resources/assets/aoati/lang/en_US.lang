@@ -1,0 +1,15 @@
+tile.blockAdamantiumOre.name=Adamantium Ore
+tile.blockCompressor.name=Compressor
+tile.blockVirus.name=Iron Ore Mining Gel
+tile.blockVirusAdamantium.name=Adamantium Ore Mining Gel
+tile.blockVirusCoal.name=Coal Ore Mining Gel
+tile.blockIngotFormer.name=Ingot Former
+tile.blockVirusRemoval.name=Mining Gel Cure
+tile.blockVirusLiquid.name=Liquid Mining Gel
+
+item.itemAdamantiumBits.name=Adamantium Bits
+item.itemCharredCoal.name=Charred Coal
+item.itemAdamantiumPiece.name=Adamantium Piece
+item.itemAdamantiumPieces.name=Adamantium Pieces
+item.itemTeleporter.name=Teleporter
+item.itemAdamantiumIngot.name=Adamantium Ingot
