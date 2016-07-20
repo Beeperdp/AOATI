@@ -23,6 +23,7 @@ public IIcon[] icons = new IIcon[6];
 		this.setLightLevel(0F);
 		this.setHarvestLevel("pickaxe", 3);
 		this.setTickRandomly(false);
+		this.setCreativeTab(aoati.creativeTab);
 	}
 	
 	@Override

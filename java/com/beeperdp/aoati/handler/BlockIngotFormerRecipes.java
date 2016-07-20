@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 
 import com.beeperdp.aoati.aoati;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -22,6 +23,7 @@ public class BlockIngotFormerRecipes {
 	
 	private BlockIngotFormerRecipes(){
 		this.addRecipe(aoati.itemAdamantiumPieces, new ItemStack(aoati.itemAdamantiumIngot), 6.4F);
+		this.addRecipe(aoati.itemSoulIngot, new ItemStack(Blocks.soul_sand), 6.4F);
 		//this.addRecipie(Item.getItemFromBlock(TMBlock.tutChest), new ItemStack(TMItem.tutHelmet), 0.8F);
 	}
 	

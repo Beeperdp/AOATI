@@ -50,6 +50,7 @@ public class BlockCompressor extends BlockContainer{
 		this.setResistance(1600F);
 		this.setLightLevel(0F);
 		this.setHarvestLevel("pickaxe", 2);
+		this.setCreativeTab(aoati.creativeTab);
 	}
 	
 	@SideOnly(Side.CLIENT)

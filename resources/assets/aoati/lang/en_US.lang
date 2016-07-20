@@ -13,3 +13,6 @@ item.itemAdamantiumPiece.name=Adamantium Piece
 item.itemAdamantiumPieces.name=Adamantium Pieces
 item.itemTeleporter.name=Teleporter
 item.itemAdamantiumIngot.name=Adamantium Ingot
+item.itemSoulIngot.name=Soul Ingot
+
+itemGroup.creativeTab=AOATI

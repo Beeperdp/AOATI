@@ -76,4 +76,8 @@ public class BlockCompressorRecipes{
 		
 		return ((Float) entry.getValue()).floatValue();
 	}
+
+	public Map<ItemStack, ItemStack> getSmeltingList() {
+		return smeltingList;
+	}
 }

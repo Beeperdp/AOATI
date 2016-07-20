@@ -30,6 +30,7 @@ public class BlockVirusRemoval extends Block {
 		this.setLightLevel(0F);
 		this.setHarvestLevel("pickaxe", 3);
 		this.setTickRandomly(false);
+		this.setCreativeTab(aoati.creativeTab);
 	}
 	
 	@Override

@@ -2,6 +2,8 @@ package com.beeperdp.aoati.block;
 
 import java.util.Random;
 
+import com.beeperdp.aoati.aoati;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -34,6 +36,7 @@ public class BlockAdamantiumOre extends Block{
 		this.setResistance(1600F);
 		this.setLightLevel(0F);
 		this.setHarvestLevel("pickaxe", 2);
+		this.setCreativeTab(aoati.creativeTab);
 	}
 	
 	@Override

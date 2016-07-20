@@ -59,6 +59,7 @@ public class aoati {
 	public static Item itemAdamantiumPieces;
 	public static Item itemTeleporter;
 	public static Item itemAdamantiumIngot;
+	public static Item itemSoulIngot;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
@@ -87,6 +88,7 @@ public class aoati {
 		itemAdamantiumPieces = new ItemAdamantiumPieces();
 		itemTeleporter = new ItemTeleporter();
 		itemAdamantiumIngot = new ItemAdamantiumIngot();
+		itemSoulIngot = new ItemSoulIngot();
 	}
 	
 	private static void RegisterItems(){
@@ -96,6 +98,7 @@ public class aoati {
 		GameRegistry.registerItem(itemAdamantiumPieces, itemAdamantiumPieces.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(itemTeleporter, itemTeleporter.getUnlocalizedName().substring(5));
 		GameRegistry.registerItem(itemAdamantiumIngot, itemAdamantiumIngot.getUnlocalizedName().substring(5));
+		GameRegistry.registerItem(itemSoulIngot, itemSoulIngot.getUnlocalizedName().substring(5));
 	}
 	
 	private static void DeclareBlocks(){
@@ -131,6 +134,22 @@ public class aoati {
 		
 		GameRegistry.addRecipe(new ItemStack(itemAdamantiumPieces, 1), new Object[]{"BB ","BB ","   ", 'B', new ItemStack(itemAdamantiumPiece,1)});
 		
+		//Compressor
+		GameRegistry.addRecipe(new ItemStack(blockCompressor, 1), new Object[]{"CFC","FIF","CFC", 'F', new ItemStack(Blocks.furnace,1), 'C', Blocks.cobblestone, 'I', Items.iron_ingot});
+		
+		//Ingot Former
+		GameRegistry.addRecipe(new ItemStack(blockIngotFormer, 1), new Object[]{"III","ICI","IFI", 'F', new ItemStack(Blocks.furnace,1), 'C', Blocks.crafting_table, 'I', Items.iron_ingot});
+		
+		//Mining Gels
+		GameRegistry.addRecipe(new ItemStack(blockVirus, 1), new Object[]{"III","ISI","III", 'S', itemSoulIngot, 'I', Items.iron_ingot});
+		GameRegistry.addRecipe(new ItemStack(blockVirusCoal, 1), new Object[]{"III","ISI","III", 'S', itemSoulIngot, 'I', Items.coal});
+		GameRegistry.addRecipe(new ItemStack(blockVirusLiquid, 1), new Object[]{" I "," S "," I ", 'S', itemSoulIngot, 'I', Items.lava_bucket});
+		GameRegistry.addRecipe(new ItemStack(blockVirusLiquid, 1), new Object[]{"   ","ISI","   ", 'S', itemSoulIngot, 'I', Items.water_bucket});
+		GameRegistry.addRecipe(new ItemStack(blockVirusAdamantium, 1), new Object[]{"III","ISI","III", 'S', itemSoulIngot, 'I', itemAdamantiumPiece});
+		
+		//Teleporter
+		GameRegistry.addRecipe(new ItemStack(itemTeleporter, 1), new Object[]{"GIG","ISI","GIG", 'S', Items.diamond, 'I', Items.iron_ingot, 'G', Blocks.glass_pane});
+		
 		GameRegistry.registerWorldGenerator(new AoatiWorldGen(), 0);
 		NetworkRegistry.INSTANCE.registerGuiHandler(modInstance, new GuiHandler());
 	}
@@ -140,11 +159,11 @@ public class aoati {
 		
 	}
 	
-	//public static CreativeTabs tabCurrencyMod = new CreativeTabs("tabCurrencyMod"){
-	//	@Override
-	//	public Item getTabIconItem(){
-	//		return new ItemStack(blockPallette).getItem();
-	//	}
-	//};
+	public static CreativeTabs creativeTab = new CreativeTabs("creativeTab"){
+		@Override
+		public Item getTabIconItem(){
+			return new ItemStack(itemTeleporter).getItem();
+		}
+	};
 	
 }
