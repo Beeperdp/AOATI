@@ -93,6 +93,7 @@ public class aoati {
 		register(Blocks.stone, "blockVirusStone", "aoati:blockVirusStone");
 		register(Blocks.grass, "blockVirusGrass", "aoati:blockVirusGrass");
 		register(Blocks.web, "blockVirusWeb", "aoati:blockVirusWeb");
+		register(Blocks.end_stone, "blockVirusEndStone", "aoati:blockVirusEndStone");
 	}
 	
 	private static void RegisterViruses(){
