@@ -8,6 +8,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import java.util.ArrayList;
+
 import com.beeperdp.aoati.block.BlockAdamantiumOre;
 import com.beeperdp.aoati.block.BlockCompressor;
 import com.beeperdp.aoati.block.BlockIngotFormer;
@@ -53,6 +55,9 @@ public class aoati {
 	public static Block blockVirusCoal;
 	public static Block blockIngotFormer;
 	public static Block blockVirusLiquid;
+	public static Block blockVirusGoldOre;
+	
+	//public static Block[] blockViruses;
 	
 	public static Item itemAdamantiumBits;
 	public static Item itemAdamantiumPiece;
@@ -62,6 +67,45 @@ public class aoati {
 	public static Item itemAdamantiumIngot;
 	public static Item itemSoulIngot;
 	public static Item itemSoul;
+	
+	public static ArrayList<Block> viruses = new ArrayList<Block>();//All viruses
+	
+	public static Block[] virusblocks = new Block[20]; //The list of viruses added with blockVirus and nothing else
+	
+	public static int virusblockscount = 0;
+	
+	private static void register(Block b, String one, String two){
+		virusblockscount = virusblockscount + 1;
+		virusblocks[virusblockscount] = new BlockVirus(b, one, two);
+	}
+	
+	private static void initVirus(){
+		viruses.add(blockVirusLiquid);
+		viruses.add(blockVirusCoal);
+		viruses.add(blockVirus);
+		viruses.add(blockVirusAdamantium);
+		
+		blockVirus = new BlockVirus(Blocks.iron_ore, "blockVirus", "aoati:blockVirus");
+		blockVirusGoldOre = new BlockVirus(Blocks.gold_ore, "blockVirusGoldOre", "aoati:blockVirusGoldOre");
+		
+		register(Blocks.lapis_ore, "blockVirusLapisOre", "aoati:blockVirusLapisOre");
+		register(Blocks.redstone_ore, "blockVirusRedstoneOre", "aoati:blockVirusRedstoneOre");
+		register(Blocks.stone, "blockVirusStone", "aoati:blockVirusStone");
+		register(Blocks.grass, "blockVirusGrass", "aoati:blockVirusGrass");
+		register(Blocks.web, "blockVirusWeb", "aoati:blockVirusWeb");
+	}
+	
+	private static void RegisterViruses(){
+		GameRegistry.registerBlock(blockVirusGoldOre, blockVirusGoldOre.getUnlocalizedName().substring(5));
+		
+		for(int i=1;i<=virusblockscount+1;i++){
+			if(virusblocks[i] != null){
+				GameRegistry.registerBlock(virusblocks[i], virusblocks[i].getUnlocalizedName().substring(5));
+			}else{
+				break;
+			}
+		}
+	}
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
@@ -108,7 +152,7 @@ public class aoati {
 	private static void DeclareBlocks(){
 		blockAdamantiumOre = new BlockAdamantiumOre(Material.cloth, itemAdamantiumBits, 1, 1, 3);
 		blockCompressor = new BlockCompressor(Material.rock, false);
-		blockVirus = new BlockVirus(Material.clay);
+		initVirus();
 		blockVirusRemoval = new BlockVirusRemoval(Material.clay);
 		blockVirusAdamantium = new BlockVirusAdamantium(Material.clay);
 		blockVirusCoal = new BlockVirusCoal(Material.clay);
@@ -125,6 +169,7 @@ public class aoati {
 		GameRegistry.registerBlock(blockVirusCoal, blockVirusCoal.getUnlocalizedName().substring(5));
 		GameRegistry.registerBlock(blockIngotFormer, blockIngotFormer.getUnlocalizedName().substring(5));
 		GameRegistry.registerBlock(blockVirusLiquid, blockVirusLiquid.getUnlocalizedName().substring(5));
+		RegisterViruses();
 	}
 	
 	@EventHandler

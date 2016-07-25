@@ -18,13 +18,21 @@ import net.minecraft.world.World;
 
 public class BlockVirus extends Block {
 	
-	public IIcon[] icons = new IIcon[6];
+	public Block blok = Blocks.stone;
 	
-	public BlockVirus(Material material){
+	public IIcon[] icons = new IIcon[1];
+	
+	public static Material material = Material.clay;
+	
+	public BlockVirus(Block blocktype, String blockName, String blockTextureName){
 		super(material);
+		blok = blocktype;
+		aoati.viruses.add(this);
+		//aoati.virusblockscount = aoati.virusblockscount+1;
+		//aoati.virusblocks[aoati.virusblocks.length+1] = this;
 		this.setHardness(345F);
-		this.setBlockName("blockVirus");
-		this.setBlockTextureName("aoati:blockVirus");
+		this.setBlockName(blockName);
+		this.setBlockTextureName(blockTextureName);
 		this.setResistance(16000F);
 		this.setLightLevel(0F);
 		this.setHarvestLevel("pickaxe", 3);
@@ -40,7 +48,7 @@ public class BlockVirus extends Block {
 	@Override
 	public void onBlockAdded(World world, int x, int y, int z) {
 		super.onBlockAdded(world, x, y, z);
-
+		
 		if(world.getBlock(x, y, z) == this) {
 			world.scheduleBlockUpdate(x, y, z, this, this.tickRate(world));
 		}
@@ -59,87 +67,87 @@ public class BlockVirus extends Block {
 		}else{
 		
 		if(world.getBlockMetadata(x, y, z) % 2 == 0){//Tick to spread, 1/2 speed in order to allow the removal block to spread fast enough to stop the virus
-        Block blok = Blocks.iron_ore;
+        
         for(int i=0;i<10;i++){
         	if(i == 0){
         		Block preblock = world.getBlock(x+1, y, z);
-        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == aoati.blockVirus == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
+        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == this == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
         			dx = x+1;
         			dy = y;
         			dz = z;
-        			world.setBlock(dx, dy, dz, aoati.blockVirus);
+        			world.setBlock(dx, dy, dz, this);
         		}
         	}else if(i == 1){
         		Block preblock = world.getBlock(x-1, y, z);
-        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == aoati.blockVirus == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
+        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == this == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
         			dx = x-1;
         			dy = y;
         			dz = z;
-        			world.setBlock(dx, dy, dz, aoati.blockVirus);
+        			world.setBlock(dx, dy, dz, this);
         		}
         	}else if(i == 2){
         		Block preblock = world.getBlock(x, y+1, z);
-        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == aoati.blockVirus == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
+        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == this == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
         			dx = x;
         			dy = y+1;
         			dz = z;
-        			world.setBlock(dx, dy, dz, aoati.blockVirus);
+        			world.setBlock(dx, dy, dz, this);
         		}
         	}else if(i == 3){
         		Block preblock = world.getBlock(x, y-1, z);
-        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == aoati.blockVirus == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
+        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == this == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
         			dx = x;
         			dy = y-1;
         			dz = z;
-        			world.setBlock(dx, dy, dz, aoati.blockVirus);
+        			world.setBlock(dx, dy, dz, this);
         		}
         	}else if(i == 4){
         		Block preblock = world.getBlock(x, y, z+1);
-        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == aoati.blockVirus == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
+        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == this == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
         			dx = x;
         			dy = y;
         			dz = z+1;
-        			world.setBlock(dx, dy, dz, aoati.blockVirus);
+        			world.setBlock(dx, dy, dz, this);
         		}
         	}else if(i == 5){
         		Block preblock = world.getBlock(x, y, z-1);
-        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == aoati.blockVirus == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
+        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == this == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
         			dx = x;
         			dy = y;
         			dz = z-1;
-        			world.setBlock(dx, dy, dz, aoati.blockVirus);
+        			world.setBlock(dx, dy, dz, this);
         		}
         	}else if(i == 6){//Anything here or beyond is the adjacent, not touching blocks to infect
         		Block preblock = world.getBlock(x-1, y, z-1);
-        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == aoati.blockVirus == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
+        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == this == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
         			dx = x-1;
         			dy = y;
         			dz = z-1;
-        			world.setBlock(dx, dy, dz, aoati.blockVirus);
+        			world.setBlock(dx, dy, dz, this);
         		}
         	}else if(i == 7){
         		Block preblock = world.getBlock(x+1, y, z-1);
-        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == aoati.blockVirus == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
+        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == this == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
         			dx = x+1;
         			dy = y;
         			dz = z-1;
-        			world.setBlock(dx, dy, dz, aoati.blockVirus);
+        			world.setBlock(dx, dy, dz, this);
         		}
         	}else if(i == 8){
         		Block preblock = world.getBlock(x-1, y, z+1);
-        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == aoati.blockVirus == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
+        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == this == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
         			dx = x-1;
         			dy = y;
         			dz = z+1;
-        			world.setBlock(dx, dy, dz, aoati.blockVirus);
+        			world.setBlock(dx, dy, dz, this);
         		}
         	}else if(i == 9){
         		Block preblock = world.getBlock(x+1, y, z+1);
-        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == aoati.blockVirus == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
+        		if(preblock == Blocks.bedrock == false && preblock == aoati.blockVirusRemoval == false && preblock == Blocks.air == false && preblock == this == false && preblock == Blocks.tallgrass == false && preblock == blok == false && preblock == Blocks.water == false && preblock == Blocks.lava == false && preblock == Blocks.flowing_lava == false && preblock == Blocks.flowing_water == false){
         			dx = x+1;
         			dy = y;
         			dz = z+1;
-        			world.setBlock(dx, dy, dz, aoati.blockVirus);
+        			world.setBlock(dx, dy, dz, this);
         		}
         	}
         }
@@ -148,10 +156,8 @@ public class BlockVirus extends Block {
 	}
 	
 	@Override
-	public void registerBlockIcons(IIconRegister reg) {
-	    for (int i = 0; i < 6; i ++) {
-	        this.icons[i] = reg.registerIcon(this.textureName + "_" + i);
-	    }
+	public void registerBlockIcons(IIconRegister reg){
+		this.icons[0] = reg.registerIcon(this.textureName);
 	}
 	
 	private int parser(int side, int meta){

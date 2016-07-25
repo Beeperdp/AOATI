@@ -19,7 +19,7 @@ public class BlockVirusRemoval extends Block {
 	
 	private int orientation = 0;
 	
-	public IIcon[] icons = new IIcon[6];
+	public IIcon[] icons = new IIcon[1];
 	
 	public BlockVirusRemoval(Material material){
 		super(material);
@@ -59,7 +59,7 @@ public class BlockVirusRemoval extends Block {
 	    for(int i=0;i<6;i++){
 	        if(i == 0){
 	        	Block preblock = world.getBlock(x+1, y, z);
-	        	if(preblock == aoati.blockVirusLiquid || preblock == aoati.blockVirusCoal || preblock == aoati.blockVirus || preblock == aoati.blockVirusAdamantium){
+	        	if(aoati.viruses.contains(preblock)){
 	        		dx = x+1;
 	        		dy = y;
 	        		dz = z;
@@ -67,7 +67,7 @@ public class BlockVirusRemoval extends Block {
 	        	}
 	        }else if(i == 1){
 	        	Block preblock = world.getBlock(x-1, y, z);
-	        	if(preblock == aoati.blockVirusLiquid || preblock == aoati.blockVirusCoal || preblock == aoati.blockVirus || preblock == aoati.blockVirusAdamantium){
+	        	if(aoati.viruses.contains(preblock)){
 	        		dx = x-1;
 	        		dy = y;
 	        		dz = z;
@@ -75,7 +75,7 @@ public class BlockVirusRemoval extends Block {
 	        	}
 	        }else if(i == 2){
 	        	Block preblock = world.getBlock(x, y+1, z);
-	        	if(preblock == aoati.blockVirusLiquid || preblock == aoati.blockVirusCoal || preblock == aoati.blockVirus || preblock == aoati.blockVirusAdamantium){
+	        	if(aoati.viruses.contains(preblock)){
 	        		dx = x;
 	        		dy = y+1;
 	        		dz = z;
@@ -83,7 +83,7 @@ public class BlockVirusRemoval extends Block {
 	        	}
 	        }else if(i == 3){
 	        	Block preblock = world.getBlock(x, y-1, z);
-	        	if(preblock == aoati.blockVirusLiquid || preblock == aoati.blockVirusCoal || preblock == aoati.blockVirus || preblock == aoati.blockVirusAdamantium){
+	        	if(aoati.viruses.contains(preblock)){
 	        		dx = x;
 	        		dy = y-1;
 	        		dz = z;
@@ -91,7 +91,7 @@ public class BlockVirusRemoval extends Block {
 	        	}
 	        }else if(i == 4){
 	        	Block preblock = world.getBlock(x, y, z+1);
-	        	if(preblock == aoati.blockVirusLiquid || preblock == aoati.blockVirusCoal || preblock == aoati.blockVirus || preblock == aoati.blockVirusAdamantium){
+	        	if(aoati.viruses.contains(preblock)){
 	        		dx = x;
 	        		dy = y;
 	        		dz = z+1;
@@ -99,7 +99,7 @@ public class BlockVirusRemoval extends Block {
 	        	}
 	        }else if(i == 5){
 	        	Block preblock = world.getBlock(x, y, z-1);
-	        	if(preblock == aoati.blockVirusLiquid || preblock == aoati.blockVirusCoal || preblock == aoati.blockVirus || preblock == aoati.blockVirusAdamantium){
+	        	if(aoati.viruses.contains(preblock)){
 	        		dx = x;
 	        		dy = y;
 	        		dz = z-1;
@@ -112,9 +112,7 @@ public class BlockVirusRemoval extends Block {
 	
 	@Override
 	public void registerBlockIcons(IIconRegister reg) {
-	    for (int i = 0; i < 6; i ++) {
-	        this.icons[i] = reg.registerIcon(this.textureName + "_" + i);
-	    }
+	    this.icons[0] = reg.registerIcon(this.textureName + "_" + 0);
 	}
 	
 	private int parser(int side, int meta){

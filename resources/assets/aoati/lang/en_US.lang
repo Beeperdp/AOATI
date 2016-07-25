@@ -6,6 +6,7 @@ tile.blockVirusCoal.name=Coal Ore Mining Gel
 tile.blockIngotFormer.name=Ingot Former
 tile.blockVirusRemoval.name=Mining Gel Cure
 tile.blockVirusLiquid.name=Liquid Mining Gel
+tile.blockVirusGoldOre=Gold Ore Mining Gel
 
 item.itemAdamantiumBits.name=Adamantium Bits
 item.itemCharredCoal.name=Charred Coal
