@@ -88,12 +88,12 @@ public class aoati {
 		blockVirus = new BlockVirus(Blocks.iron_ore, "blockVirus", "aoati:blockVirus");
 		blockVirusGoldOre = new BlockVirus(Blocks.gold_ore, "blockVirusGoldOre", "aoati:blockVirusGoldOre");
 		
-		register(Blocks.lapis_ore, "blockVirusLapisOre", "aoati:blockVirusLapisOre");
+		//register(Blocks.lapis_ore, "blockVirusLapisOre", "aoati:blockVirusLapisOre");
 		register(Blocks.redstone_ore, "blockVirusRedstoneOre", "aoati:blockVirusRedstoneOre");
-		register(Blocks.stone, "blockVirusStone", "aoati:blockVirusStone");
-		register(Blocks.grass, "blockVirusGrass", "aoati:blockVirusGrass");
-		register(Blocks.web, "blockVirusWeb", "aoati:blockVirusWeb");
-		register(Blocks.end_stone, "blockVirusEndStone", "aoati:blockVirusEndStone");
+		//register(Blocks.stone, "blockVirusStone", "aoati:blockVirusStone");
+		//register(Blocks.grass, "blockVirusGrass", "aoati:blockVirusGrass");
+		//register(Blocks.web, "blockVirusWeb", "aoati:blockVirusWeb");
+		//register(Blocks.end_stone, "blockVirusEndStone", "aoati:blockVirusEndStone");
 	}
 	
 	private static void RegisterViruses(){
@@ -196,12 +196,15 @@ public class aoati {
 		//Mining Gels
 		GameRegistry.addRecipe(new ItemStack(blockVirus, 1), new Object[]{"III","ISI","III", 'S', itemSoulIngot, 'I', Items.iron_ingot});
 		GameRegistry.addRecipe(new ItemStack(blockVirusCoal, 1), new Object[]{"III","ISI","III", 'S', itemSoulIngot, 'I', Items.coal});
-		GameRegistry.addRecipe(new ItemStack(blockVirusLiquid, 1), new Object[]{" I "," S "," I ", 'S', itemSoulIngot, 'I', Items.lava_bucket});
-		GameRegistry.addRecipe(new ItemStack(blockVirusLiquid, 1), new Object[]{"   ","ISI","   ", 'S', itemSoulIngot, 'I', Items.water_bucket});
+		GameRegistry.addRecipe(new ItemStack(blockVirusLiquid, 4), new Object[]{" I "," S "," I ", 'S', itemSoulIngot, 'I', Items.lava_bucket});
+		GameRegistry.addRecipe(new ItemStack(blockVirusLiquid, 4), new Object[]{"   ","ISI","   ", 'S', itemSoulIngot, 'I', Items.water_bucket});
 		GameRegistry.addRecipe(new ItemStack(blockVirusAdamantium, 1), new Object[]{"III","ISI","III", 'S', itemSoulIngot, 'I', itemAdamantiumBits});
 		
+		GameRegistry.addRecipe(new ItemStack(virusblocks[1], 1), new Object[]{"III","ISI","III", 'S', itemSoulIngot, 'I', Items.redstone});
+		GameRegistry.addRecipe(new ItemStack(blockVirusGoldOre, 1), new Object[]{"III","ISI","III", 'S', itemSoulIngot, 'I', Items.gold_nugget});
+		
 		//Teleporter
-		GameRegistry.addRecipe(new ItemStack(itemTeleporter, 1), new Object[]{"GIG","ISI","GIG", 'S', Items.diamond, 'I', Items.iron_ingot, 'G', Blocks.glass_pane});
+		GameRegistry.addRecipe(new ItemStack(itemTeleporter, 1), new Object[]{"GIG","ISI","GIG", 'S', Items.diamond, 'I', itemAdamantiumIngot, 'G', Blocks.glass_pane});
 		
 		GameRegistry.registerWorldGenerator(new AoatiWorldGen(), 0);
 		NetworkRegistry.INSTANCE.registerGuiHandler(modInstance, new GuiHandler());
